@@ -1,7 +1,7 @@
 %define module blessed
 
 Name:		python-blessed
-Version:	1.40.0
+Version:	1.41.0
 Release:	1
 Summary:	An easy, practical library for making python terminal apps
 License:	MIT
