@@ -1,7 +1,7 @@
 %define module blessed
 
 Name:		python-blessed
-Version:	1.47.0
+Version:	1.50.0
 Release:	1
 Summary:	An easy, practical library for making python terminal apps
 License:	MIT
@@ -18,6 +18,11 @@ BuildRequires:	python%{pyver}dist(wheel)
 Blessed is an easy, practical library for making terminal apps, by providing
 an elegant, well-documented interface to Colors, Keyboard input, and screen
 position and Location capabilities.
+
+%prep -a
+# flit 4 does not accept the upper bound. The version lives in blessed/__init__.py.
+sed -i 's/flit_core >=3.11,<4/flit_core >=3.11/' pyproject.toml
+sed -i "s/dynamic = \['version'\]/version = \"%{version}\"/" pyproject.toml
 
 %files
 %{py_sitedir}/%{module}
